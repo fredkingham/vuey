@@ -1,0 +1,3 @@
+recursive-include vuey/static *
+recursive-include vuey/assets *
+recursive-include vuey/templates *

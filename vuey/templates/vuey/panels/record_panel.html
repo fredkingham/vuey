@@ -1,0 +1,33 @@
+{% comment %}
+<script type="text/x-template" id="form-input">
+    <b-input v-model="basicRadioButton.result" class="mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" placeholder="Jane Doe" />
+</script>
+
+
+<b-modal id="basicRadioButtonForm" ref="modal" title="Submit your name" @ok="handleOk" @shown="clearName">
+    <form @submit.stop.prevent="handleSubmit">
+        <b-form-input type="text" placeholder="Enter your name" v-model="basic_radio_button.result"></b-form-input>
+    </form>
+</b-modal>
+{% endcomment %}
+
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                <h5 class="card-title">Card title</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" v-for="basic_radio_button in episode.basic_radio_button">
+                    <div clss="col-md-12">
+                        [[ basic_radio_button.result ]]
+                    </div>
+                    <div class="col-md-2 text-right">
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

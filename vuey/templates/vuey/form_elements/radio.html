@@ -1,0 +1,19 @@
+<script type="text/x-template" id="form-radio">
+    <b-form-group label="Inline radios (default)">
+        <b-form-radio-group v-model="basic_radio_button.result" v-bind:options="options" name="radioInline">
+        </b-form-radio-group>
+    </b-form-group>
+</script>
+
+<script>
+    Vue.component('formRadio', {
+        template: '#form-radio',
+        props: ["subrecord", "subrecordName", "options"],
+        data: function(){
+            var result = {};
+            result[this.subrecordName] = this.subrecord;
+            result[this.subrecordName].episode_id = 1;
+            return result;                 
+        }
+    });
+</script>

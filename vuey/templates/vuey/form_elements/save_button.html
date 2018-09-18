@@ -1,0 +1,35 @@
+<script type="text/x-template" id="form-save-button">
+    <b-btn size="lg" class="float-right" variant="primary" @click="show=false">
+        Save
+    </b-btn>
+</script>
+
+<script>
+    Vue.component('saveButton', {
+        template: '#form-save0buttn'
+        {% comment %}
+        props: ["subrecord", "subrecordName", "options"],
+        data: function(){
+            var result = {};
+            result[this.subrecordName] = this.subrecord;
+            result[this.subrecordName].episode_id = 1;
+            return result;                 
+        },
+        methods: {
+               saveSubrecord: function(subrecordName, subrecord){
+                   var result = axios.post(this.subrecordUrl(subrecordName, subrecord), subrecord);
+                        result.then(function(x){
+                    _.merge(subrecord, x.data)
+                    });
+               },
+               subrecordUrl(subrecordName, subrecord){
+               var url = "/api/v0.1/" + subrecordName + "/";
+               if(subrecord.id){
+                    url = url + subrecord.id + "/";
+                }
+                return url;
+            }
+        },
+        {% endcomment %}
+    });
+</script>

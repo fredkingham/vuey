@@ -1,0 +1,42 @@
+{% load static %}
+<html>
+    <head>
+        {% csrf_token %}
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+        <script src="//unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+        <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script type="module" src="{{ STATIC_URL }}/js/vuey/episode.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    </head>
+    <body>
+        {% include 'vuey/form_elements/input.html' %}
+        {% include 'vuey/form_elements/radio.html' %}
+        {% include 'vuey/form_elements/save_button.html' %}
+        <div class="container-fluid" id="app">
+            {% include 'vuey/panels/record_panel.html' %}
+            {% comment %}
+            {% include 'vuey/form_bases/modal.html' %}
+            <b-btn v-b-modal="'modal1'">Launch demo modal</b-btn>
+            {% endcomment %}
+        </div>
+
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    episode: {
+                        basic_radio_button: [
+                            {result: "one"}
+                        ]
+                    }
+                },
+
+                delimiters: ["[[","]]"]
+            });
+        </script>
+    </body>
+</html>

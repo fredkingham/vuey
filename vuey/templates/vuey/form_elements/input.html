@@ -1,0 +1,17 @@
+<script type="text/x-template" id="form-input">
+    <b-input v-model="basic_radio_button.result" class="mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" placeholder="Jane Doe" />
+</script>
+
+
+<script>
+    Vue.component('formInput', {
+        template: '#form-input',
+        props: ["subrecord", "subrecordName"],
+        data: function(){
+            var result = {};
+            result[this.subrecordName] = this.subrecord;
+            result[this.subrecordName].episode_id = 1;
+            return result;
+        }
+    });
+</script>

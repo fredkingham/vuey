@@ -1,0 +1,5 @@
+IDBCursorWithValue.
+
+Vue.component('recordPanel', {
+
+});
